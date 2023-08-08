@@ -17,8 +17,8 @@ app.use('/api', async (req, res) => {
 		const data = await apiResponse.json();
 		res.send(data);
 	} catch (error) {
-		res.status(500).send('Error fetching data from the jservice API.');
-		console.log(error);
+		console.error('Error fetching data:', error);
+		res.status(500).json({ error: 'Error fetching data' });
 	}
 });
 

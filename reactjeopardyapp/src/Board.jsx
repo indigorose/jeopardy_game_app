@@ -2,6 +2,7 @@
 //5x6 board creation
 import React, {useState, useEffect} from "react";
 import Category from './Category'
+import './board.css'
 
 function Board() {
     const [categories, setCategories] = useState([]);

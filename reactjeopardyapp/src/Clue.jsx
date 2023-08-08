@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, {useState} from 'react'
+import './clue.css'
 
 function Clue({value, clue}) {
     const [stage, setStage] = useState(0)
@@ -11,7 +12,7 @@ function Clue({value, clue}) {
     let className
 
     if (stage === 0) {
-        content = `${value}`
+        content = `$${value}`
         className = `jeopardy-clue dollar-value`
     } else if (stage===1){
         content = clue ? clue.question : null
@@ -24,7 +25,7 @@ function Clue({value, clue}) {
 
     return (
         <div className={className} onClick={handleClick}>
-            {content}
+            {stage === 0 ? content : <span dangerouslySetInnerHTML={{__html:content}}/>}
         </div>
     )
 }
